@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NexCode
+
+NexCode is a modern collaborative coding platform built with Next.js. It allows developers to write, manage, and collaborate on code efficiently through a clean and responsive user interface.
+
+## Features
+
+* Modern and responsive UI
+* Built with Next.js App Router
+* Tailwind CSS styling
+* Static export support
+* Docker-ready deployment
+* Fast and optimized production build
+
+## Tech Stack
+
+* Next.js
+* React
+* JavaScript
+* Tailwind CSS
+* Docker
+* Express.js
 
 ## Getting Started
 
-First, run the development server:
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+to view the application.
 
-## Learn More
+## Production Build
 
-To learn more about Next.js, take a look at the following resources:
+Generate a production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The build output is generated inside the:
 
-## Deploy on Vercel
+```txt
+out/
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+directory.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Static Export
+
+This project uses:
+
+```js
+output: "export"
+```
+
+in `next.config.mjs` to generate static files.
+
+## Deploying with Backend
+
+Copy the generated files to the backend public folder:
+
+```bash
+cp -r out/* ../Backend/public/
+```
+
+Backend structure:
+
+```txt
+Backend/
+├── public/
+├── server.js
+├── package.json
+└── node_modules/
+```
+
+## Running the Backend
+
+```bash
+cd ../Backend
+node server.js
+```
+
+Visit:
+
+```txt
+http://localhost:3000
+```
+
+## Docker Deployment
+
+Build Docker Image:
+
+```bash
+docker build -t nexcode .
+```
+
+Run Docker Container:
+
+```bash
+docker run -p 3000:3000 nexcode
+```
+
+## Project Structure
+
+```txt
+frontend/
+├── app/
+├── public/
+├── out/
+├── next.config.mjs
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## License
+
+This project is licensed under the MIT License.
